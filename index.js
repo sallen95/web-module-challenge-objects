@@ -7,12 +7,16 @@ const breakfastBurrito = {name: "Breakfast Burrito", price: 16, category:"Breakf
 /* Task 1a: write a function to return more menu items with the same format as the items above. */
 
 function createMenuItem(name, cost, category){
-    /* Code here */
+    return {name, cost, category};
 }
+
+console.log(createMenuItem('Fries', 7, 'Appetizer'));
 
 /* Task 1b: use your function to create 3 more menu items. You may add any items to the menu that you'd like */
 
-
+createMenuItem('Fries', 7, 'Appetizer');
+createMenuItem('Grilled Cheese Sandwich', 14, "Lunch");
+createMenuItem('Shake', 6, 'Drinks');
 
 /* Task 2: You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to your burger object that automatically calculates price given a string as a parameter. 
 
@@ -23,6 +27,19 @@ Your method should accept:
 and should return a number. 
 
 For example, burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2*/
+
+
+burger.discount = function(string){
+  if(string === 'teacher'){
+    return this.price - this.price * .25;
+  } else if(string === 'student'){
+    return this.price - this.price * .25;
+  } else{
+    return this.price - this.price * .1;
+  }
+}
+
+console.log(burger.discount('teacher'));
 
 
 
@@ -40,11 +57,37 @@ const reviews = [{name: "Daniela", rating: 5, feedback:"Beautiful atmosphere and
 
 /* Task 3: Console.log just Julius' feedback */
 
+function findJulius(){
+  for(let i = 0; i < reviews.length; i++){
+    if(reviews[i].name === 'Julius'){
+      console.log (reviews[i]);
+    }
+  }
+}
+
+findJulius();
 
 /* Task 4: Add a new rating with your (fictitious) opinions of the restaurant in the same format as the reviews above. */
 
+// function newRating(){
+//   reviews.push{name: "Scott", rating: 5, feedback:"Delicious food in a wonderful atmosphere. Great place for night out with my wife."};
+// }
+
+
 
 /* Task 5: Add the following feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"
+*/
+
+function reynaRating(){
+  for(let i = 0; i < reviews.length; i++){
+    if(reviews[i].name === 'Reyna'){
+      reviews[i].feedback = 'this place is chill with really cool people, great for getting work done on weekdays';
+      console.log (reviews[i]);
+    }
+  }
+}
+
+reynaRating();
 
 /*  Task 6: Write a function to return a review based on the index of the review in the array.
 
